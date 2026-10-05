@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="8dp"
+    android:layout_marginHorizontal="6dp"
+    app:cardBackgroundColor="#261E17"
+    app:cardCornerRadius="8dp"
+    app:strokeColor="#544434"
+    app:strokeWidth="1.5dp"
+    app:cardElevation="6dp">
+
+    <!-- ESTRUTURA DE PASTA DE ARQUIVO FÍSICO CONFIDENCIAL (MANILA/PARDO ESCURO) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ABA SUPERIOR DA PASTA COM GRAMPO DE METAL -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:background="#382C22"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="12dp">
+
+            <!-- Grampo de fixação -->
+            <View
+                android:layout_width="18dp"
+                android:layout_height="4dp"
+                android:background="#9C907E" />
+
+            <TextView
+                android:id="@+id/tvIdPasta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ARQUIVO // CONFIDENCIAL-SHIELD"
+                android:textColor="#D4C8B4"
+                android:textSize="9.5sp"
+                android:fontFamily="monospace"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- CORPO DA PASTA: FOTO CENTRALIZADA COM CARIMBO SOBREPOSTO -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:background="#1F1812">
+
+            <!-- Foto do Personagem Centralizada -->
+            <ImageView
+                android:id="@+id/ivThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:background="#161A1E"
+                android:contentDescription="Fotografia do Dossiê" />
+
+            <!-- Película leve de papel envelhecido -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#401A140E" />
+
+            <!-- SELO / CARIMBO VERMELHO 'CLASSIFICADO' COM ROTAÇÃO -15° E TRANSPARÊNCIA -->
+            <TextView
+                android:id="@+id/tvCarimboClassificado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:rotation="-15"
+                android:alpha="0.88"
+                android:text="CLASSIFICADO"
+                android:textColor="@color/shield_red_classified"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:letterSpacing="0.18"
+                android:background="@drawable/bg_carimbo_borda"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp" />
+        </FrameLayout>
+
+        <!-- DADOS DATILOGRAFADOS (MÁQUINA DE ESCREVER) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:background="#221A14">
+
+            <!-- Nome em Monospace (Estilo máquina de escrever) -->
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NOME DO OPERATIVO"
+                android:textColor="#F4EADB"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.04"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <!-- Informações adicionais datilografadas -->
+            <TextView
+                android:id="@+id/tvAlias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="IDENTIDADE CLASSIFICADA // S.H.I.E.L.D."
+                android:textColor="#9E8D7A"
+                android:textSize="11sp"
+                android:fontFamily="monospace"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginTop="3dp" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Relevo Metálico Externo -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="14dp" />
+            <gradient
+                android:angle="90"
+                android:startColor="#2C3644"
+                android:centerColor="#4F617C"
+                android:endColor="#2C3644"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Miolo Metálico Escuro -->
+    <item
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="12dp" />
+            <gradient
+                android:angle="270"
+                android:startColor="#222A33"
+                android:centerColor="#181D23"
+                android:endColor="#13171C"
+                android:type="linear" />
+            <stroke
+                android:width="1.5dp"
+                android:color="#FF6D00" />
+        </shape>
+    </item>
+</layer-list>

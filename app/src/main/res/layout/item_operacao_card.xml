@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardOperacao"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="#1C1C1C"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp"
+    app:strokeColor="#333333"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center_vertical">
+
+        <!-- Pôster da Operação (80dp x 120dp, proporção 2:3, cantos arredondados 8dp) -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPoster"
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Pôster da Operação"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.PosterCorner"
+            tools:src="@drawable/ic_claquete_placeholder" />
+
+        <!-- Coluna de Informações Verticais -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <!-- Linha 1: Badges (Contagem regressiva no destaque + Categoria) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Chip de Destaque / Contagem Regressiva (Visível somente no 1º item) -->
+                <TextView
+                    android:id="@+id/tvBadgeCountdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_badge_countdown"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="#F9A825"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:text="EM 74 DIAS"
+                    tools:visibility="visible" />
+
+                <!-- Tag de Categoria ("CINEMA" ou "DISNEY+") -->
+                <TextView
+                    android:id="@+id/tvTagCategoria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_tag_categoria"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="#9A9A9A"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif-medium"
+                    tools:text="CINEMA" />
+            </LinearLayout>
+
+            <!-- Linha 2: Título do filme/série em #EAEAEA, 15sp, negrito, até 2 linhas -->
+            <TextView
+                android:id="@+id/tvTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#EAEAEA"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="VINGADORES: DOOMSDAY" />
+
+            <!-- Linha 3: Fase ("FASE 5", "FASE 6") em #9A9A9A, 12sp -->
+            <TextView
+                android:id="@+id/tvFase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="#9A9A9A"
+                android:textSize="12sp"
+                tools:text="FASE 6 // CINEMAS GLOBAIS" />
+
+            <!-- Linha 4: Data de lançamento em destaque sutil (13sp, #EAEAEA) -->
+            <TextView
+                android:id="@+id/tvData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#EAEAEA"
+                android:textSize="13sp"
+                tools:text="18/12/2026" />
+
+            <!-- Linha 5: Sinopse curta em #9A9A9A, 11sp, até 2 linhas -->
+            <TextView
+                android:id="@+id/tvSinopse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#9A9A9A"
+                android:textSize="11sp"
+                tools:text="O retorno histórico dos irmãos Russo na direção e Robert Downey Jr. como Victor von Doom." />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

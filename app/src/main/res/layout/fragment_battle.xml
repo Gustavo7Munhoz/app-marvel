@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/versus_background"
+    android:clipToPadding="false"
+    android:paddingBottom="76dp"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- CABEÇALHO TÁTICO EM UMA LINHA SIMPLES -->
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="12dp">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_shield_logo"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="S.H.I.E.L.D."
+                app:tint="@color/versus_text_secondary" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="VERSUS 1v1"
+                android:textColor="@color/versus_text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:letterSpacing="0.06" />
+
+            <FrameLayout
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_quiz_letter_circle">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_battle_swords"
+                    app:tint="@color/versus_accent_gold"
+                    android:contentDescription="Arena de Combate" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- FORMULÁRIO DE SELEÇÃO DOS LUTADORES -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/versus_card_bg"
+            app:cardCornerRadius="16dp"
+            app:strokeColor="@color/versus_border"
+            app:strokeWidth="1dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SELECIONE OS COMBATENTES"
+                    android:textColor="@color/versus_text_secondary"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.12"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Campo P1 (Azul #29B6F6 ao focar) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilFighter1"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="@color/selector_p1_input"
+                    app:hintTextColor="@color/selector_p1_input"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/versus_text_secondary"
+                    android:hint="P1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFighter1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="56dp"
+                        android:textColor="@color/versus_text_primary"
+                        android:textColorHint="@color/versus_text_secondary"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:inputType="textPersonName"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- "VERSUS" Pequeno e Neutro em #9A9A9A -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="VERSUS"
+                    android:textColor="@color/versus_text_secondary"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-condensed"
+                    android:letterSpacing="0.15"
+                    android:layout_marginVertical="6dp" />
+
+                <!-- Campo P2 (Vermelho #E53935 ao focar) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilFighter2"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="@color/selector_p2_input"
+                    app:hintTextColor="@color/selector_p2_input"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/versus_text_secondary"
+                    android:hint="P2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFighter2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="56dp"
+                        android:textColor="@color/versus_text_primary"
+                        android:textColorHint="@color/versus_text_secondary"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:inputType="textPersonName"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Duelos Clássicos em ChipGroup Horizontal -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DUELOS CLÁSSICOS RECOMENDADOS:"
+                    android:textColor="@color/versus_text_secondary"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.1"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:clipToPadding="false"
+                    android:layout_marginBottom="18dp">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:singleLine="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipDuelo1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:text="Iron Man vs Captain America"
+                            android:textSize="11sp"
+                            android:textColor="@color/versus_text_primary"
+                            app:chipBackgroundColor="@color/versus_banner_bg"
+                            app:chipStrokeColor="@color/versus_border"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="10dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipDuelo2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:text="Thor vs Hulk"
+                            android:textSize="11sp"
+                            android:textColor="@color/versus_text_primary"
+                            app:chipBackgroundColor="@color/versus_banner_bg"
+                            app:chipStrokeColor="@color/versus_border"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="10dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipDuelo3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:text="Spider-Man vs Venom"
+                            android:textSize="11sp"
+                            android:textColor="@color/versus_text_primary"
+                            app:chipBackgroundColor="@color/versus_banner_bg"
+                            app:chipStrokeColor="@color/versus_border"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="10dp" />
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
+
+                <!-- Botão de Ação "COMPARAR" -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCompare"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="COMPARAR"
+                    android:textColor="#121212"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.05"
+                    app:backgroundTint="@color/versus_accent_gold"
+                    app:cornerRadius="12dp"
+                    android:alpha="0.4"
+                    android:enabled="false" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- PROGRESS BAR & MENSAGEM DE ERRO -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:indeterminateTint="@color/versus_accent_gold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textColor="@color/versus_p2_red"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:visibility="gone" />
+
+        <!-- CARD DE RESULTADO SEPARADO DO FORMULÁRIO -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/versus_card_bg"
+            app:cardCornerRadius="16dp"
+            app:strokeColor="@color/versus_border"
+            app:strokeWidth="1dp"
+            app:cardElevation="0dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- RETRATOS DOS LUTADORES 3:4 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:weightSum="2">
+
+                    <!-- P1 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivFighter1"
+                            android:layout_width="105dp"
+                            android:layout_height="140dp"
+                            android:scaleType="centerCrop"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearance.VersusPortrait"
+                            app:strokeWidth="2dp"
+                            app:strokeColor="@color/versus_p1_blue"
+                            android:background="@color/versus_portrait_placeholder"
+                            android:contentDescription="Retrato P1" />
+
+                        <TextView
+                            android:id="@+id/tvName1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="P1"
+                            android:textColor="@color/versus_p1_blue"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+
+                    <!-- VS Badge Neutro no Meio -->
+                    <FrameLayout
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_quiz_letter_circle"
+                        android:layout_marginHorizontal="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="VS"
+                            android:textColor="@color/versus_text_secondary"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-condensed" />
+                    </FrameLayout>
+
+                    <!-- P2 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivFighter2"
+                            android:layout_width="105dp"
+                            android:layout_height="140dp"
+                            android:scaleType="centerCrop"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearance.VersusPortrait"
+                            app:strokeWidth="2dp"
+                            app:strokeColor="@color/versus_p2_red"
+                            android:background="@color/versus_portrait_placeholder"
+                            android:contentDescription="Retrato P2" />
+
+                        <TextView
+                            android:id="@+id/tvName2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="P2"
+                            android:textColor="@color/versus_p2_red"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- BANNER DE VANTAGEM (FUNDO #2A2A2A) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/versus_banner_bg"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="18dp">
+
+                    <TextView
+                        android:id="@+id/tvPowerDiffTotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="10dp"
+                        android:paddingHorizontal="14dp"
+                        android:text="VANTAGEM: +21 PONTOS PARA THANOS"
+                        android:textColor="@color/versus_p2_red"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.05" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- BARRAS COMPARATIVAS DOS ATRIBUTOS (CRESCENDO DO CENTRO) -->
+
+                <!-- 1. INTELIGÊNCIA -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tvInt1"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="100"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="start" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="INTELIGÊNCIA"
+                            android:textColor="@color/versus_text_secondary"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.06"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/tvInt2"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="100"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="end" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
+
+                        <ProgressBar
+                            android:id="@+id/pbInt1"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="100"
+                            android:scaleX="-1"
+                            android:progressTint="@color/versus_p1_blue"
+                            android:progressBackgroundTint="#222222" />
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="match_parent" />
+
+                        <ProgressBar
+                            android:id="@+id/pbInt2"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="100"
+                            android:progressTint="@color/versus_p2_red"
+                            android:progressBackgroundTint="#222222" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 2. FORÇA -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tvStr1"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="85"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="start" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="FORÇA"
+                            android:textColor="@color/versus_text_secondary"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.06"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/tvStr2"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="100"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="end" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
+
+                        <ProgressBar
+                            android:id="@+id/pbStr1"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="85"
+                            android:scaleX="-1"
+                            android:progressTint="@color/versus_p1_blue"
+                            android:progressBackgroundTint="#222222" />
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="match_parent" />
+
+                        <ProgressBar
+                            android:id="@+id/pbStr2"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="100"
+                            android:progressTint="@color/versus_p2_red"
+                            android:progressBackgroundTint="#222222" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 3. VELOCIDADE -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tvSpd1"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="58"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="start" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="VELOCIDADE"
+                            android:textColor="@color/versus_text_secondary"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.06"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/tvSpd2"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="33"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="end" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
+
+                        <ProgressBar
+                            android:id="@+id/pbSpd1"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="58"
+                            android:scaleX="-1"
+                            android:progressTint="@color/versus_p1_blue"
+                            android:progressBackgroundTint="#222222" />
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="match_parent" />
+
+                        <ProgressBar
+                            android:id="@+id/pbSpd2"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="33"
+                            android:progressTint="@color/versus_p2_red"
+                            android:progressBackgroundTint="#222222" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 4. DURABILIDADE -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tvDur1"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="85"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="start" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="DURABILIDADE"
+                            android:textColor="@color/versus_text_secondary"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.06"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/tvDur2"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="100"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="end" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
+
+                        <ProgressBar
+                            android:id="@+id/pbDur1"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="85"
+                            android:scaleX="-1"
+                            android:progressTint="@color/versus_p1_blue"
+                            android:progressBackgroundTint="#222222" />
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="match_parent" />
+
+                        <ProgressBar
+                            android:id="@+id/pbDur2"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="100"
+                            android:progressTint="@color/versus_p2_red"
+                            android:progressBackgroundTint="#222222" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 5. PODER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tvPow1"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="100"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="start" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="PODER"
+                            android:textColor="@color/versus_text_secondary"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.06"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/tvPow2"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="100"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="end" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
+
+                        <ProgressBar
+                            android:id="@+id/pbPow1"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="100"
+                            android:scaleX="-1"
+                            android:progressTint="@color/versus_p1_blue"
+                            android:progressBackgroundTint="#222222" />
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="match_parent" />
+
+                        <ProgressBar
+                            android:id="@+id/pbPow2"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="100"
+                            android:progressTint="@color/versus_p2_red"
+                            android:progressBackgroundTint="#222222" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 6. COMBATE -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tvCom1"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="64"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="start" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="COMBATE"
+                            android:textColor="@color/versus_text_secondary"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.06"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/tvCom2"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="80"
+                            android:textColor="@color/versus_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="end" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
+
+                        <ProgressBar
+                            android:id="@+id/pbCom1"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="64"
+                            android:scaleX="-1"
+                            android:progressTint="@color/versus_p1_blue"
+                            android:progressBackgroundTint="#222222" />
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="match_parent" />
+
+                        <ProgressBar
+                            android:id="@+id/pbCom2"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="80"
+                            android:progressTint="@color/versus_p2_red"
+                            android:progressBackgroundTint="#222222" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- DIVISOR SUTIL -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/versus_border"
+                    android:layout_marginVertical="12dp" />
+
+                <!-- VEREDITO FINAL NO RODAPÉ DO CARD -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VEREDITO"
+                        android:textColor="@color/versus_text_secondary"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.12"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:id="@+id/tvWinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VITÓRIA PROVÁVEL DE THANOS"
+                        android:textColor="@color/versus_text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.04"
+                        android:gravity="center" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

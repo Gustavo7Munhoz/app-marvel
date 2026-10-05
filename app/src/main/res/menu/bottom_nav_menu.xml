@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_calendar_event"
+        android:title="Calendário" />
+    <item
+        android:id="@+id/archiveFragment"
+        android:icon="@drawable/ic_search_modern"
+        android:title="Dossiê" />
+    <item
+        android:id="@+id/joiasFragment"
+        android:icon="@drawable/ic_gem_stone"
+        android:title="Joias" />
+    <item
+        android:id="@+id/quizFragment"
+        android:icon="@drawable/ic_quiz_trophy"
+        android:title="Quiz" />
+    <item
+        android:id="@+id/battleFragment"
+        android:icon="@drawable/ic_battle_swords"
+        android:title="X1" />
+</menu>

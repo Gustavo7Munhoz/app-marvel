@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:orientation="vertical">
+
+    <!-- HEADER SÓBRIO S.H.I.E.L.D. (Linha única <= 100dp) -->
+    <LinearLayout
+        android:id="@+id/headerHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#121212"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="4dp">
+
+        <!-- Linha Principal: Título "OPERAÇÕES" em 22sp bold #EAEAEA -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="OPERAÇÕES"
+                android:textColor="#EAEAEA"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.04" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_shield_logo"
+                app:tint="#9A9A9A"
+                android:contentDescription="S.H.I.E.L.D." />
+        </LinearLayout>
+
+        <!-- TABLAYOUT DISCRETO: CALENDÁRIO & TERMO OPERATIVO -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabOperacoes"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            app:tabIndicatorColor="#F9A825"
+            app:tabIndicatorHeight="2dp"
+            app:tabSelectedTextColor="#EAEAEA"
+            app:tabTextColor="#9A9A9A"
+            app:tabMode="fixed"
+            app:tabGravity="fill"
+            app:tabRippleColor="@null"
+            app:tabTextAppearance="@style/ShieldTabTextAppearance">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CALENDÁRIO" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TERMO OPERATIVO" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <!-- Linha divisória sutil de 1dp -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="#222222" />
+    </LinearLayout>
+
+    <!-- ABA 1: CALENDÁRIO DE OPERAÇÕES (COM FILTROS TÁTICOS E RECYCLERVIEW) -->
+    <LinearLayout
+        android:id="@+id/layoutCalendarioOperacoes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!-- BARRA HORIZONTAL DE FILTROS TÁTICOS (CHIPGROUP) -->
+        <HorizontalScrollView
+            android:id="@+id/scrollFiltros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            android:paddingHorizontal="16dp"
+            android:clipToPadding="false"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="6dp">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupFiltros"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleLine="true"
+                app:singleSelection="true"
+                app:selectionRequired="true">
+
+                <!-- 1. TODOS (ATIVO POR PADRÃO) -->
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTodos"
+                    style="@style/Widget.Shield.Chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TODOS"
+                    android:checked="true"
+                    app:chipBackgroundColor="@color/selector_chip_bg"
+                    app:chipStrokeColor="@color/selector_chip_stroke"
+                    android:textColor="@color/selector_chip_text" />
+
+                <!-- 2. CINEMA -->
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCinema"
+                    style="@style/Widget.Shield.Chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CINEMA"
+                    app:chipBackgroundColor="@color/selector_chip_bg"
+                    app:chipStrokeColor="@color/selector_chip_stroke"
+                    android:textColor="@color/selector_chip_text" />
+
+                <!-- 3. DISNEY+ -->
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipDisneyPlus"
+                    style="@style/Widget.Shield.Chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DISNEY+"
+                    app:chipBackgroundColor="@color/selector_chip_bg"
+                    app:chipStrokeColor="@color/selector_chip_stroke"
+                    android:textColor="@color/selector_chip_text" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+        <!-- ÁREA PRINCIPAL DA LISTA E ESTADOS (FRAME COM RECYCLER, VAZIO E LOADING) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- RECYCLERVIEW DE OPERAÇÕES (paddingBottom 76dp, clipToPadding false) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvOperacoes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="76dp"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_operacao_card" />
+
+            <!-- ESTADO VAZIO: NENHUM LANÇAMENTO PREVISTO -->
+            <LinearLayout
+                android:id="@+id/layoutEmptyOperacoes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingHorizontal="32dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/ivEmptyIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_calendar_event"
+                    app:tint="#9A9A9A"
+                    android:alpha="0.7"
+                    android:layout_marginBottom="12dp"
+                    android:contentDescription="Sem lançamentos" />
+
+                <TextView
+                    android:id="@+id/tvEmptyMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nenhum lançamento previsto"
+                    android:textColor="#9A9A9A"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.04" />
+            </LinearLayout>
+
+            <!-- LOADING DISCRETO COM ACENTO #F9A825 -->
+            <ProgressBar
+                android:id="@+id/progressBarOperacoes"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:indeterminateTint="#F9A825"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- ABA 2: TERMO OPERATIVO (MINI-GAME WORDLE) -->
+    <ScrollView
+        android:id="@+id/layoutTermoOperativo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        android:clipToPadding="false"
+        android:paddingBottom="96dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CRIPTOGRAFIA // OPERATIVO DO DIA"
+                android:textColor="@color/shield_cyan_neon"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:letterSpacing="0.08" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adivinhe o codinome de 5 letras em 6 tentativas"
+                android:textColor="@color/shield_text_secondary"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp" />
+
+            <!-- GRADE DO TERMO (6 TENTATIVAS X 5 LETRAS) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+                <!-- LINHA 1 -->
+                <LinearLayout
+                    android:id="@+id/rowTermo0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView android:id="@+id/cell_0_0" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_0_1" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_0_2" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_0_3" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_0_4" style="@style/TermoCell" />
+                </LinearLayout>
+
+                <!-- LINHA 2 -->
+                <LinearLayout
+                    android:id="@+id/rowTermo1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+                    <TextView android:id="@+id/cell_1_0" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_1_1" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_1_2" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_1_3" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_1_4" style="@style/TermoCell" />
+                </LinearLayout>
+
+                <!-- LINHA 3 -->
+                <LinearLayout
+                    android:id="@+id/rowTermo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+                    <TextView android:id="@+id/cell_2_0" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_2_1" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_2_2" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_2_3" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_2_4" style="@style/TermoCell" />
+                </LinearLayout>
+
+                <!-- LINHA 4 -->
+                <LinearLayout
+                    android:id="@+id/rowTermo3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+                    <TextView android:id="@+id/cell_3_0" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_3_1" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_3_2" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_3_3" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_3_4" style="@style/TermoCell" />
+                </LinearLayout>
+
+                <!-- LINHA 5 -->
+                <LinearLayout
+                    android:id="@+id/rowTermo4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+                    <TextView android:id="@+id/cell_4_0" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_4_1" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_4_2" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_4_3" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_4_4" style="@style/TermoCell" />
+                </LinearLayout>
+
+                <!-- LINHA 6 -->
+                <LinearLayout
+                    android:id="@+id/rowTermo5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+                    <TextView android:id="@+id/cell_5_0" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_5_1" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_5_2" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_5_3" style="@style/TermoCell" />
+                    <TextView android:id="@+id/cell_5_4" style="@style/TermoCell" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- STATUS E FEEDBACK -->
+            <TextView
+                android:id="@+id/tvStatusTermo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INFORME SEU PALPITE DE 5 LETRAS"
+                android:textColor="@color/shield_cyan_neon"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginTop="16dp" />
+
+            <!-- ENTRADA DE PALPITE -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/etPalpiteTermo"
+                    android:layout_width="160dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_bottom_nav_metal"
+                    android:gravity="center"
+                    android:hint="5 LETRAS"
+                    android:maxLength="5"
+                    android:textColor="@color/shield_cyan_neon"
+                    android:textColorHint="@color/shield_text_muted"
+                    android:textAllCaps="true"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapCharacters"
+                    android:layout_marginEnd="10dp" />
+
+                <Button
+                    android:id="@+id/btnValidarTermo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:backgroundTint="@color/shield_cyan_neon"
+                    android:text="VALIDAR"
+                    android:textColor="@color/shield_lead_darkest"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- LEGENDA TÁTICA -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="16dp">
+
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:background="@color/shield_green_clearance"
+                    android:layout_marginEnd="4dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Correta"
+                    android:textColor="@color/shield_text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="12dp" />
+
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:background="@color/shield_amber_warning"
+                    android:layout_marginEnd="4dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Posição errada"
+                    android:textColor="@color/shield_text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="12dp" />
+
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:background="#121620"
+                    android:layout_marginEnd="4dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ausente"
+                    android:textColor="@color/shield_text_secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

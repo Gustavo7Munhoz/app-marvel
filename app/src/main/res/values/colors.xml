@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- S.H.I.E.L.D. Tactical Metal Panel Palette (Fase 1 Refatorada) -->
+    <!-- Fundos Escuros Táticos -->
+    <color name="shield_dark_12">#12161A</color>
+    <color name="shield_dark_16">#161A1E</color>
+    <color name="shield_dark_1e">#1E2328</color>
+    <color name="shield_background_tactical">#12161A</color>
+    <color name="shield_panel_tactical">#1E2328</color>
+    <color name="shield_lead_darkest">#12161A</color>
+    <color name="shield_chip_bg_checked">#1E2833</color>
+    <color name="shield_chip_bg_default">#161B20</color>
+    <color name="shield_chip_stroke_default">#2A3542</color>
+    <color name="shield_night_blue">#1E2328</color>
+    <color name="shield_lead_surface">#1E2328</color>
+    <color name="shield_lead_elevated">#262D34</color>
+    <color name="shield_metal_steel">#38445A</color>
+    <color name="shield_metal_border">#2C384E</color>
+    <color name="shield_metal_highlight">#4E5E7A</color>
+
+    <!-- Texto e Detalhes Táticos em Ciano / Azul Neon -->
+    <color name="shield_cyan_pure">#00F0FF</color>
+    <color name="shield_blue_neon">#4FC3F7</color>
+    <color name="shield_cyan_neon">#00F0FF</color>
+    <color name="shield_cyan_glow">#00F0FF</color>
+    <color name="shield_cyan_soft">#8000F0FF</color>
+    <color name="shield_cyan_dim">#1A00F0FF</color>
+    <color name="shield_cyan_dark">#005B66</color>
+    <color name="shield_timeline_line">#005B66</color>
+    <color name="shield_card_metal">#1E2328</color>
+
+    <!-- Alertas em Laranja e Vermelho Escuro -->
+    <color name="shield_alert_orange">#FF6D00</color>
+    <color name="shield_alert_orange_bright">#FF8C00</color>
+    <color name="shield_alert_red_dark">#D32F2F</color>
+    <color name="shield_orange_neon">#FF6D00</color>
+    <color name="shield_orange_glow">#33FF6D00</color>
+    <color name="shield_countdown_bg">#14191F</color>
+    <color name="shield_red_classified">#FF1744</color>
+    <color name="shield_red_crimson">#FF1744</color>
+    <color name="shield_crimson_glow">#FF1744</color>
+    <color name="shield_red_dim">#26FF1744</color>
+    <color name="shield_red_dark">#D32F2F</color>
+
+    <!-- Status Operacional e Autorização -->
+    <color name="shield_green_clearance">#00E676</color>
+    <color name="shield_green_status">#00E676</color>
+    <color name="shield_amber_warning">#FFD600</color>
+    <color name="shield_amber_gold">#FFB300</color>
+    <color name="shield_amber_dim">#26FFB300</color>
+    <color name="shield_purple_cosmic">#9D4EDD</color>
+    <color name="shield_purple_dim">#269D4EDD</color>
+
+    <!-- Fundos e Superfícies Clássicas (Compatibilidade) -->
+    <color name="shield_black">#0B0E11</color>
+    <color name="shield_background_dark">#161A1E</color>
+    <color name="shield_surface">#1E2328</color>
+    <color name="shield_surface_variant">#22272E</color>
+    <color name="shield_surface_elevated">#262D34</color>
+    <color name="shield_dark_gray">#1E2328</color>
+    <color name="shield_light_gray">#323B44</color>
+    <color name="shield_border_subtle">#2A333C</color>
+    <color name="shield_border_glow">#4000F0FF</color>
+    <color name="shield_dark_blue">#161A1E</color>
+
+    <!-- Tipografia e Contrastes -->
+    <color name="shield_text_primary">#F0F4FC</color>
+    <color name="shield_text_secondary">#8C9BB5</color>
+    <color name="shield_text_tertiary">#5A647A</color>
+    <color name="shield_text_muted">#505E77</color>
+    <color name="shield_text_cyan_dark">#00ACC1</color>
+    <color name="shield_white">#FFFFFF</color>
+
+    <!-- Painel de Controle e Barra Inferior -->
+    <color name="nav_bar_bg">#161616</color>
+    <color name="nav_indicator_light">#2600F0FF</color>
+    <color name="nav_accent_gold">#F9A825</color>
+    <color name="nav_inactive">#8A929B</color>
+
+    <!-- Paleta Dossiê Pasta Manila / Kraft (S.H.I.E.L.D. Confidential) -->
+    <color name="dossier_background">#121212</color>
+    <color name="dossier_folder_manila">#D8C8A0</color>
+    <color name="dossier_folder_border">#BCA878</color>
+    <color name="dossier_folder_tab">#CBB78C</color>
+    <color name="dossier_folder_inner_bg">#CEBE96</color>
+    <color name="dossier_stamp_red">#C62828</color>
+    <color name="dossier_stamp_border">#C62828</color>
+    <color name="dossier_stamp_bg">#18C62828</color>
+    <color name="dossier_text_dark">#3B2F1E</color>
+    <color name="dossier_text_sub">#6D5C43</color>
+    <color name="dossier_search_bg">#1E1E1E</color>
+    <color name="dossier_search_border">#333333</color>
+
+    <!-- Paleta Joias do Infinito (S.H.I.E.L.D. Dark Archive) -->
+    <color name="joias_background">#121212</color>
+    <color name="joias_card_bg">#1C1C1C</color>
+    <color name="joias_text_primary">#EAEAEA</color>
+    <color name="joias_text_secondary">#9A9A9A</color>
+    <color name="joias_text_description">#CFCFCF</color>
+    <color name="joias_data_box_bg">#161616</color>
+    <color name="joias_data_box_border">#262626</color>
+    <color name="joias_divider_inner">#222222</color>
+
+    <!-- Paleta Quiz (S.H.I.E.L.D. Tactical Assessment) -->
+    <color name="quiz_background">#121212</color>
+    <color name="quiz_card_bg">#1C1C1C</color>
+    <color name="quiz_card_bg_subtle">#161616</color>
+    <color name="quiz_border">#333333</color>
+    <color name="quiz_border_subtle">#262626</color>
+    <color name="quiz_letter_bg">#2A2A2A</color>
+    <color name="quiz_text_primary">#EAEAEA</color>
+    <color name="quiz_text_secondary">#9A9A9A</color>
+    <color name="quiz_text_muted">#777777</color>
+    <color name="quiz_level_facil">#2E7D32</color>
+    <color name="quiz_level_medio">#F9A825</color>
+    <color name="quiz_level_dificil">#C62828</color>
+
+    <!-- Paleta Versus 1v1 (S.H.I.E.L.D. Combat Evaluation) -->
+    <color name="versus_background">#121212</color>
+    <color name="versus_card_bg">#1C1C1C</color>
+    <color name="versus_border">#333333</color>
+    <color name="versus_banner_bg">#2A2A2A</color>
+    <color name="versus_portrait_placeholder">#2A2A2A</color>
+    <color name="versus_text_primary">#EAEAEA</color>
+    <color name="versus_text_secondary">#9A9A9A</color>
+    <color name="versus_p1_blue">#29B6F6</color>
+    <color name="versus_p2_red">#E53935</color>
+    <color name="versus_accent_gold">#F9A825</color>
+
+    <!-- Paleta Calendário de Operações (S.H.I.E.L.D. Classified Archive) -->
+    <color name="operacoes_background">#121212</color>
+    <color name="operacoes_card_bg">#1C1C1C</color>
+    <color name="operacoes_border">#333333</color>
+    <color name="operacoes_accent">#F9A825</color>
+    <color name="operacoes_text_primary">#EAEAEA</color>
+    <color name="operacoes_text_secondary">#9A9A9A</color>
+    <color name="operacoes_poster_placeholder">#2A2A2A</color>
+</resources>

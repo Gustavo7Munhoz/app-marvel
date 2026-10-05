@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!-- HOME: Calendário de Operações -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.marvel.HomeFragment"
+        android:label="Calendário">
+        <action
+            android:id="@+id/action_home_to_calendar"
+            app:destination="@id/calendarFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_home_to_archive"
+            app:destination="@id/archiveFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_home_to_joias"
+            app:destination="@id/joiasFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_home_to_battle"
+            app:destination="@id/battleFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_home_to_quiz"
+            app:destination="@id/quizFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <!-- CALENDÁRIO MCU (Acesso pelo Header da Home) -->
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.marvel.ui.calendar.CalendarFragment"
+        android:label="Calendário" />
+
+    <!-- ARQUIVO DE OPERATIVOS / DOSSIÊ -->
+    <fragment
+        android:id="@+id/archiveFragment"
+        android:name="com.example.marvel.ui.intel.ArchiveFragment"
+        android:label="Dossiê">
+        <action
+            android:id="@+id/action_archiveFragment_to_dossierFragment"
+            app:destination="@id/dossierFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <!-- DOSSIER DE OPERATIVO -->
+    <fragment
+        android:id="@+id/dossierFragment"
+        android:name="com.example.marvel.ui.dossier.DossierFragment"
+        android:label="Dossiê">
+        <argument
+            android:name="characterId"
+            app:argType="string"
+            android:defaultValue="1440" />
+    </fragment>
+
+    <!-- JOIAS DO INFINITO 3D -->
+    <fragment
+        android:id="@+id/joiasFragment"
+        android:name="com.example.marvel.ui.joias.JoiasFragment"
+        android:label="Joias" />
+
+    <!-- VERSUS 1V1 (ARENA DE COMBATE X1) -->
+    <fragment
+        android:id="@+id/battleFragment"
+        android:name="com.example.marvel.ui.battle.BattleFragment"
+        android:label="X1" />
+
+    <!-- QUIZ TÁTICO S.H.I.E.L.D. -->
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.marvel.ui.quiz.QuizFragment"
+        android:label="Quiz" />
+
+</navigation>

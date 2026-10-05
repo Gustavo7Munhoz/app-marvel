@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@color/shield_dark_gray"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ivComicCover"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        android:background="@color/shield_black" />
+
+    <TextView
+        android:id="@+id/tvComicName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Issue Name"
+        android:textColor="@color/shield_cyan_glow"
+        android:textSize="10sp"
+        android:fontFamily="monospace"
+        android:maxLines="2"
+        android:ellipsize="end" />
+</LinearLayout>

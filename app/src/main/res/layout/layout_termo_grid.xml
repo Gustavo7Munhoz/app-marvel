@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/shield_dark_16"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="20dp">
+
+    <!-- CABEÇALHO DO JOGO -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S.H.I.E.L.D. // TERMO OPERATIVO"
+        android:textColor="@color/shield_cyan_pure"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:letterSpacing="0.08" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adivinhe o codinome de 5 letras em 6 tentativas"
+        android:textColor="@color/shield_text_secondary"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp" />
+
+    <!-- GRADE DO TERMO (6 LINHAS X 5 COLUNAS DE QUADRADOS COM FUNDO ESCURO) -->
+    <LinearLayout
+        android:id="@+id/termo_grid_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_painel_metal"
+        android:padding="16dp">
+
+        <!-- LINHA 1 -->
+        <LinearLayout
+            android:id="@+id/row_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView android:id="@+id/c_0_0" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_0_1" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_0_2" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_0_3" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_0_4" style="@style/TermoCell" />
+        </LinearLayout>
+
+        <!-- LINHA 2 -->
+        <LinearLayout
+            android:id="@+id/row_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+            <TextView android:id="@+id/c_1_0" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_1_1" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_1_2" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_1_3" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_1_4" style="@style/TermoCell" />
+        </LinearLayout>
+
+        <!-- LINHA 3 -->
+        <LinearLayout
+            android:id="@+id/row_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+            <TextView android:id="@+id/c_2_0" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_2_1" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_2_2" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_2_3" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_2_4" style="@style/TermoCell" />
+        </LinearLayout>
+
+        <!-- LINHA 4 -->
+        <LinearLayout
+            android:id="@+id/row_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+            <TextView android:id="@+id/c_3_0" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_3_1" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_3_2" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_3_3" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_3_4" style="@style/TermoCell" />
+        </LinearLayout>
+
+        <!-- LINHA 5 -->
+        <LinearLayout
+            android:id="@+id/row_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+            <TextView android:id="@+id/c_4_0" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_4_1" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_4_2" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_4_3" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_4_4" style="@style/TermoCell" />
+        </LinearLayout>
+
+        <!-- LINHA 6 -->
+        <LinearLayout
+            android:id="@+id/row_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+            <TextView android:id="@+id/c_5_0" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_5_1" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_5_2" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_5_3" style="@style/TermoCell" />
+            <TextView android:id="@+id/c_5_4" style="@style/TermoCell" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ENTRADA DE PALPITE -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/et_palpite"
+            android:layout_width="160dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_bottom_nav_metallic_top"
+            android:gravity="center"
+            android:hint="5 LETRAS"
+            android:maxLength="5"
+            android:textColor="@color/shield_cyan_pure"
+            android:textColorHint="@color/shield_text_muted"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:layout_marginEnd="10dp" />
+
+        <Button
+            android:id="@+id/btn_validar"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/shield_cyan_pure"
+            android:text="VALIDAR"
+            android:textColor="@color/shield_dark_16"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_status_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STATUS: AGUARDANDO TENTATIVA 1/6"
+        android:textColor="@color/shield_text_secondary"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_marginTop="14dp" />
+</LinearLayout>

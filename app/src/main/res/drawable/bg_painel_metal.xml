@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Camada 1: Borda chanfrada externa de relevo metálico -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="14dp" />
+            <gradient
+                android:angle="135"
+                android:startColor="#4A5668"
+                android:centerColor="#262D36"
+                android:endColor="#14181C"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Camada 2: Miolo da Placa de Metal (Cinza Chumbo Tático) -->
+    <item
+        android:bottom="1.5dp"
+        android:left="1.5dp"
+        android:right="1.5dp"
+        android:top="1.5dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="13dp" />
+            <gradient
+                android:angle="270"
+                android:startColor="#242B32"
+                android:centerColor="#1E2328"
+                android:endColor="#181C20"
+                android:type="linear" />
+            <stroke
+                android:width="1dp"
+                android:color="#323B46" />
+        </shape>
+    </item>
+
+    <!-- Camada 3: Linha de Relevo Superior (Reflexo de Aço) -->
+    <item
+        android:left="14dp"
+        android:right="14dp"
+        android:top="2dp"
+        android:height="1.5dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#404FC3F7" />
+        </shape>
+    </item>
+
+    <!-- Camada 4: Parafuso / Rebite Tático Superior Esquerdo -->
+    <item
+        android:left="8dp"
+        android:top="8dp"
+        android:width="5dp"
+        android:height="5dp">
+        <shape android:shape="oval">
+            <solid android:color="#4A5668" />
+            <stroke android:width="1dp" android:color="#14181C" />
+        </shape>
+    </item>
+
+    <!-- Camada 5: Parafuso / Rebite Tático Superior Direito -->
+    <item
+        android:gravity="top|end"
+        android:right="8dp"
+        android:top="8dp"
+        android:width="5dp"
+        android:height="5dp">
+        <shape android:shape="oval">
+            <solid android:color="#4A5668" />
+            <stroke android:width="1dp" android:color="#14181C" />
+        </shape>
+    </item>
+
+    <!-- Camada 6: Parafuso / Rebite Tático Inferior Esquerdo -->
+    <item
+        android:gravity="bottom|start"
+        android:left="8dp"
+        android:bottom="8dp"
+        android:width="5dp"
+        android:height="5dp">
+        <shape android:shape="oval">
+            <solid android:color="#4A5668" />
+            <stroke android:width="1dp" android:color="#14181C" />
+        </shape>
+    </item>
+
+    <!-- Camada 7: Parafuso / Rebite Tático Inferior Direito -->
+    <item
+        android:gravity="bottom|end"
+        android:right="8dp"
+        android:bottom="8dp"
+        android:width="5dp"
+        android:height="5dp">
+        <shape android:shape="oval">
+            <solid android:color="#4A5668" />
+            <stroke android:width="1dp" android:color="#14181C" />
+        </shape>
+    </item>
+</layer-list>

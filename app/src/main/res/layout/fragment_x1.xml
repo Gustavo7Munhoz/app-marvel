@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/shield_lead_darkest"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- CABEÇALHO TÁTICO DA ARENA -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ARENA TÁTICA // SIMULAÇÃO X1"
+        android:textColor="@color/shield_cyan_neon"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:letterSpacing="0.08"
+        android:layout_marginBottom="24dp" />
+
+    <!-- SELETOR COMBATENTE 1 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OPERATIVO ALFA:"
+        android:textColor="@color/shield_text_secondary"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/sp_combatente_1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_bottom_nav_metal"
+        android:paddingHorizontal="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VS"
+        android:textColor="@color/shield_orange_neon"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_gravity="center"
+        android:layout_marginVertical="14dp" />
+
+    <!-- SELETOR COMBATENTE 2 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OPERATIVO BETA:"
+        android:textColor="@color/shield_text_secondary"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/sp_combatente_2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_bottom_nav_metal"
+        android:paddingHorizontal="12dp" />
+
+    <!-- BOTÃO DE AÇÃO PRIMÁRIA -->
+    <Button
+        android:id="@+id/btn_comparar_poder"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/shield_orange_neon"
+        android:text="COMPARAR DIFERENÇA DE PODER"
+        android:textColor="@color/shield_lead_darkest"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:letterSpacing="0.05" />
+
+    <!-- RESULTADO DO DIFERENCIAL DE PODER -->
+    <TextView
+        android:id="@+id/tv_resultado_comparacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:gravity="center"
+        android:textColor="@color/shield_text_primary"
+        android:textSize="14sp"
+        android:lineSpacingExtra="5dp"
+        android:fontFamily="monospace"
+        android:background="@drawable/bg_search_pill"
+        android:padding="16dp"
+        android:visibility="gone" />
+
+</LinearLayout>

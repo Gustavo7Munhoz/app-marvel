@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema Principal do S.H.I.E.L.D. Command Center (Sempre Escuro) -->
+    <style name="Theme.Marvel" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/shield_cyan_glow</item>
+        <item name="colorOnPrimary">@color/shield_black</item>
+        <item name="colorSecondary">@color/shield_red_crimson</item>
+        <item name="colorOnSecondary">@color/shield_black</item>
+        
+        <item name="android:statusBarColor">@color/shield_black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/nav_bar_bg</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        
+        <item name="android:windowBackground">@color/shield_background_dark</item>
+        <item name="colorSurface">@color/shield_surface</item>
+        <item name="colorOnSurface">@color/shield_text_primary</item>
+    </style>
+
+    <style name="CustomBottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/nav_indicator_light</item>
+    </style>
+
+    <!-- Tema para a SplashActivity: fundo preto, logo S.H.I.E.L.D., sem flash de cor (Android 12+) -->
+    <style name="Theme.Marvel.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/shield_black</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_shield_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.Marvel.Splash.Post</item>
+    </style>
+
+    <style name="Theme.Marvel.Splash.Post" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@color/shield_black</item>
+        <item name="android:statusBarColor">@color/shield_black</item>
+        <item name="android:navigationBarColor">@color/shield_black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="ShapeAppearance.CutCorner" parent="">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">14dp</item>
+    </style>
+    <style name="TermoCell">
+        <item name="android:layout_width">46dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:background">@drawable/bg_termo_cell</item>
+        <item name="android:textColor">@color/shield_text_primary</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+</resources>
